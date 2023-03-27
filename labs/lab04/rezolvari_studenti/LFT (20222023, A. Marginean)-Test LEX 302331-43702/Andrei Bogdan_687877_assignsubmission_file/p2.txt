@@ -1,0 +1,27 @@
+
+ int number=0;
+%%
+for printf("FOR");
+if printf("IF");
+in printf("IN");
+to printf("TO");
+else printf("ELSE");
+print printf("PRINT");
+exit printf("EXIT");
+[a-z][a-zA-Z0-9]* printf("VAR");
+[+] printf("ADD");
+[-] printf("SUB");
+[/] printf("DIV");
+[*] printf("MUL");
+\n printf("\n");
+[0-9]*[.][0-9] printf("REAL") ;
+[0-9]+ {printf("INT"); number++;}
+
+
+%%
+yywrap(){
+  printf("%d",number);
+  return 1;
+}
+
+

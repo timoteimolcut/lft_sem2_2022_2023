@@ -1,0 +1,22 @@
+Sub 1:
+
+1.
+Parseaza numere reale. 
+Doua exemple de stringuri care se potivesc:
+0.1e-1
+10.99
+
+2.
+Aceasta este expresia regulata pentru un timestamp:
+[1-2][0-9]{3}-((0[1-9])|(1[0-2]))-(([0-2][0-9])|30|31) ((0[0-9])|1[0-2]):[0-5][0-9]:[0-5][0-9]
+
+3.
+Sunt foarte multe reguli in realitate, dar in mare asta e o adresa de email.
+[a-zA-Z0-9\._]+@[a-zA-Z0-9]+\.[a-zA-Z0-9\._]+
+
+4.
+
+52 * 3 * 3 * 3 * 4 * 10 = 56160
+
+
+

@@ -1,0 +1,7 @@
+a=2;
+print a;
+
+exit;
+
+a=3;
+print a;

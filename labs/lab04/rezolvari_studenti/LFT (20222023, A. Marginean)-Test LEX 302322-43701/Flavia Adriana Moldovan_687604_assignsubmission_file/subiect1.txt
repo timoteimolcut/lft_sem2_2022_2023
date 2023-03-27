@@ -1,0 +1,43 @@
+[0-9]+"."[0-9]*([DEde][-+]?[0-9]+)?
+reprezinta un floating-point number
+de exemplu:
+3.14
+1.0E+12
+0.123e-22
+1231.123
+etc..
+
+
+19[0-9]{2} - [01][0-9]-[0-3]+ ([0-9][0-9]:){3}
+
+expresia regulata corecta si mai generala ar fi:
+
+[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]
+
+o alta expresie este:
+ \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} foarte generala insa nu ar respecta
+faptul ca avem de-a face cu minute, ore, adica sa nu treaca de 59 min, sec
+
+\d{4}-\d{2}-\d{2} ([01]\d|2[0-3]):([0-5]\d):([0-5]\d)
+ aici rezolvam problema, minutele,secundele orele nu trec de 59 resprectiv 23
+
+\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01]) ([01]\d|2[0-3]):([0-5]\d):([0-5]\d)
+aici respectam si formatul lunii si zilelor
+
+(0?[1-9]|[1-9]\d{3})-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01]) ([01]\d|2[0-3]):([0-5]\d):([0-5]\d)
+in final permitem ani intre 1 si 2999 :)
+
+
+
+o expresie care potriveste adresa de email
+[A-Za-z]+([.-]?[A-Za-z0-9]+)+@[A-Za-z]+[-]?[A-Za-z0-9]+?\.\w{3}
+
+
+
+[A-Za-z]=[0-3]{3}[+-/*][0-9]
+A=123+1
+B=111*7
+a=121/4
+putem avea 52 de litere, mici si mari, 4 operatori matematici si 10 cifre
+52x4x10 = 2080 stringuri care pot face match cu expresia regulata
+

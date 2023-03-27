@@ -1,0 +1,7 @@
+amagic
+bmagic
+cmagic
+abcmagic
+bcmagic
+acmagic
+

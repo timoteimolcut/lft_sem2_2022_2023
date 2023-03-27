@@ -1,0 +1,32 @@
+%{
+#include <stdio.h>
+int intregi=0;
+
+%}
+
+%%
+exit                        {printf("EXIT ");}
+else                        {printf("ELSE ");}
+for                         {printf("FOR ");}
+if                          {printf("IF ");}
+in                          {printf("IN ");}
+print                       {printf("PRINT ");}
+[0-9]*                      {intregi++,printf("INT ");}
+[0-9]+"."+[0-9]*            {printf("REAL ");}
+[a-zA-Z][a-zA-Z\-]*         {printf("VAR ");}
+"+"                         {printf("ADD ");}
+"-"                         {printf("SUB ");}
+"*"                         {printf("MUL ");}
+"/"                         {printf("DIV ");}
+"++"                        {printf("INC ");}
+
+%%
+
+int main()
+{
+    yylex();
+    printf("\n");
+    printf("Numarul de intregi:%d\n",intregi);
+    return 0;
+}
+

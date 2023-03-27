@@ -1,0 +1,4 @@
+for a in 1 to 2 by 0,1:
+    for b in 0 to 3:
+       x^2+b
+draw

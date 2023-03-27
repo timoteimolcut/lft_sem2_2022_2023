@@ -1,0 +1,23 @@
+Subiectul1
+
+1.
+Primul exemplu: 123"."2313
+Al doilea exemplu: 11"."22
+
+
++ = o data sau de mai multe ori
+* = niciodata sau de mai multe ori
+? = o data sau deloc 
+
+2.
+
+[0-9]{4}-[01][0-9]-[0-3][0-9] [0-2][0-9]:([0-5][0-9]:){2}
+
+3.
+
+[A-Za-z]+([.-]?[A-Za-z0-9]+)+@[A-Za-z]+[-]?[A-Za-z0-9]+?\.(com|edu|net)
+
+4.   52*64*4*10 = 133120
+
+
+

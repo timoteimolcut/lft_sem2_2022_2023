@@ -1,0 +1,31 @@
+
+sudo apt-get update
+sudo apt-get install flex
+
+sudo apt-get install bison
+
+
+https://www.geeksforgeeks.org/flex-fast-lexical-analyzer-generator/
+
+https://faculty.ksu.edu.sa/sites/default/files/lex_and_yacc_installation.pdf
+
+appendix
+
+vs code
+
+plugins
+
+compiler vs interpreter
+
+
+
+
+lex -o output.c lex_source_file.l
+gcc lex.yy.c/output.c -ll
+./a.out
+
+
+
+lex -o histo.c histo.l 
+gcc -o h histo.c -ll
+./h < lorem_ipsum 

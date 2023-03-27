@@ -1,0 +1,19 @@
+Subiectul1
+
+exemplu 1:9.01e+1
+exemplu 2:9876.123123123
+
+Asa presupun ca ar trebui
+([0-9]{4}-[0-9]{2}-[0-9]{2})+ ([0-9]{2}:[0-9]{2}:[0-9]{2})
+pune 4 cifre intre 0 si 9 care semnifica anul
+2 cifre care semnifica luna
+2 cifre care semnifica ziua
+cam aceeasi chestie si la cealalta paranteza doar ca are : in loc de -
+
+
+Adresa de email:^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+.[a-zA-Z]
+poate incepe cu orice litera de al la z fie mare sau mica
+poate pune . sau _ orice dupa @ ex:edu...
+
+
+

@@ -1,0 +1,26 @@
+    int cnt = 0;
+VAR [a-zZ-A]\b=
+INT [-/+]{0,1}[0-9]\b
+REAL [INT.INT]+
+ADD /+
+MUTIPLY /*
+DEVIDE //
+MOD %
+FOR for
+IN in
+IF if
+ELSE else
+
+%%
+VAR {printf("VAR\n");}
+INT {cnt++; printf("INT\n");}
+REAL {printf("REAL\n");}
+ADD {printf("ADD\n");}
+MUTIPLY {printf("MUTIPLY\n");}
+DEVIDE {printf("DEVIDE\n");}
+MOD {printf("MOD\n");}
+FOR {printf("FOR\n");}
+IN {printf("IN\n");}
+IF {printf("IF\n");}
+"\n" {printf("%d,cnt")}
+%%

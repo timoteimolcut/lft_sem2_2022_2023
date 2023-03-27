@@ -1,0 +1,17 @@
+SUBIECTUL 1
+1. ex1:  8.
+   ex2:  778.6
+
+2.
+[1-9]([0-9]){3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([0-1][0-9]|2[0-3])(:([0-5][0-9])){2}
+
+3.name@domainName.dom  name trebuie sa aiba minim 10 caractere si maxim 15, sa inceapa cu litera mica
+domainName sa aiba minim 4, maxim 8 caractere si poate avea si _
+dom trebuie sa fie format din lowerCase si poate avea 2 sau 3 litere
+[a-z][A-Za-z0-9]{9-14}@[a-z_]{4-8}[\.][a-z]{2-3}
+
+4.  [A-Za-z] = 26+26 = 52 de moduri de a alege prima litera
+    [0-3] = 4 optiuni pentru fiecare incercare, avem {3} => 4^3 = 64
+    [+-/*] = 4 optiuni
+    [0-9] = 10 optiuni 
+    deci 52*64*4*10 = deci 133120 de stringuri.

@@ -1,0 +1,35 @@
+SUBIECTUL 1.
+A)
+3.14e-16" - Acest șir se potrivește cu expresia regulată deoarece începe cu un număr întreg "3", urmat de un punct și apoi de un număr zecimal "14", iar la sfârșit poate să conțină un exponent "e" sau "E" urmat de un posibil semn "-" sau "+" și un număr întreg "16".
+
+"16." - Acest șir se potrivește cu expresia regulată deoarece începe cu un număr întreg "16". Este urmat de un punct și nu conține un număr zecimal sau un exponent.
+
+B)
+\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}
+
+Această expresie este cea generala pentru orice an de patru cifre, lună și zi cu două cifre, și oră, minut și secundă cu două cifre.
+ \d reprezintă orice cifră 
+\s reprezintă orice spațiu alb 
+
+
+C)
+
+^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+
+Aceasta este o expresie regulata specifica pentru majoritatea adreselor de email.
+
+
+
+
+
+D)Pentru expresia regulata [A-Za-z] = [0-3]{3}[+-/*][0-9] 
+
+
+Există un total de 52 litere (26 majuscule și 26 minuscule) și 4 operatori.
+Cifrele trebuie să fie în intervalul de la 0 la 3 =>  există 4 posibilități pentru fiecare cifră. 
+Prin urmare, numărul total de șiruri posibile este de:
+
+52 * 4^3 * 4 = 8,192
+
+Deci, in concluzie, numarul posibil de stringuri este 8192.
+

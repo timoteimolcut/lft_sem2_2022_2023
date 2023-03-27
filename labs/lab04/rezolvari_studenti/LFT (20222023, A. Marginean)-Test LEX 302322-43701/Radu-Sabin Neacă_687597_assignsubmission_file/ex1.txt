@@ -1,0 +1,39 @@
+1)
+[0-9]+"."[0-9]*([DEde])[-+]?[0-9]+)?
+%% trebuie sa avem cel putin o cifra de inceput
+%% trebuie sa avem obligatoriu caracterul .
+%% trebuie sa avem cel putin 0 cifre
+%% trebuie sa avem o cifra din lista de 4
+%% trebuie ori + ori - (sau pot sa fie omise amandoua)
+%% trebuie sa avem cel putin o cifra
+%% ce se afla in paranteze rotunde poate fi omis
+
+Two exemples:
+"123.45D-6"
+"0.678e+9"
+
+2)
+19[0-9]{2}-[01][0-9]-[0-3]+ ([0-9][0-9]:){3}
+
+general form:
+
+[0-9]{4}-[01][0-9]-[0123][0-9] [012][0-9]:[012345][0-9]:[012345][0-9]
+
+3)
+example email address: rAdu.Sabin123@gmal.com
+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
+%% prima [] contine mail ul pana in @ cu cateva caractere speciale
+%% a 2-a [] contine tipul de mail
+%% ultima {} precizeaza ca sunt cel putin 2 cifre dupa .
+
+4)
+[A-Za-z]=[0-3]{3}[+-/*][0-9]
+
+%% contine o cifra mare sau mica	+1... 52 posibilitati 
+%% urmeaza un =				+1... 1 posibilitate
+%% urmeaza 3 cifre intre 0-3		+3... 4 posibilitati ^3 ... 4*4*4 = 64
+%% urmeaza un din cele 4 simboluri	+1... 4 posibilitati
+%% urmeaza o cifra 			+1... 10 posibilitati
+
+Raspuns final: 52 * 1 * 64 * 4 * 10 = ...
+

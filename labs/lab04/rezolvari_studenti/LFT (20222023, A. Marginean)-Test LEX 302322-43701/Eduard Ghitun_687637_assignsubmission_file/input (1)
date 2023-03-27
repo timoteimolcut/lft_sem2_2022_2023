@@ -1,0 +1,52 @@
+
+            %{
+    int num_integers = 0;
+%}
+
+DIGIT [0-9]
+INTEGER {DIGIT}+
+FLOAT {DIGIT}*\.{DIGIT}+
+IDENTIFIER [a-zA-Z][a-zA-Z0-9]* //expresia este forma[a-zA-Z][a-zA-Z0-9]*
+WS [ \t\n]+
+
+%%
+
+//reguli folosite pentru Lex 
+
+{INTEGER}    { num_integers++; }
+{FLOAT}      {}
+{IDENTIFIER} { }
+{WS}         { }
+"for"        { printf("FOR\n"); }
+"in"         { printf("IN\n"); }
+"to"         { printf("TO\n"); }
+"if"         { printf("IF\n"); }
+"else"       { printf("ELSE\n"); }
+"exit()"     { printf("EXIT\n"); }
+"print("    { printf("PRINT\n"); }
+"+"          { printf("ADD\n"); }
+"-"          { printf("SUBTRACT\n"); }
+"*"          { printf("MULTIPLY\n"); }
+"/"          { printf("DIVIDE\n"); }
+"="          { printf("ASSIGN\n"); }
+"<"          { printf("LESS_THAN\n"); }
+"<="         { printf("LESS_THAN_OR_EQUAL\n"); }
+">"          { printf("GREATER_THAN\n"); }
+">="         { printf("GREATER_THAN_OR_EQUAL\n"); }
+"=="         { printf("EQUAL\n"); }
+"!="         { printf("NOT_EQUAL\n"); }
+"("          { printf("LEFT_PAREN\n"); }
+")"          { printf("RIGHT_PAREN\n"); }
+";"          { printf("SEMICOLON\n"); }
+
+.            { printf("ERROR\n"); }
+
+%%
+
+//Variabila care afiseaza cate numere intregi apar in fisierul de input este num_integers.
+
+int main() {
+    yylex();
+    printf("Number of integers: %d\n", num_integers);
+    return 0;
+}

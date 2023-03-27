@@ -1,0 +1,39 @@
+subiecte diferite la cele 2 semigrupe
+
+
+idei cu ce as putea folosi: yytext[yyleng-1]
+                            
+                            
+                            
+                            
+                            start conditions
+                            similar cu ex 3.4.1
+
+                            problema
+                            caracter count
+                            count specific regular expression
+                            REJECT
+                            instructiuni de mini limbaj: for, while, if, switch to tokens
+                            adunare, scadere, inmultire, impartire
+                            ceva cu yywrap()
+
+
+4 intrebari teoretice 4p - 1p fiecare
+
+    1. dati 3 exemple diferite de stringuri care se potrivesc cu aceasta expresie regulata: {D}+"."{D}*({E})?
+    2. r’^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$’
+    3. 
+
+
+
+
+o problema cu un mini limbaj 6p - 3 subpuncte de 3p fiecare
+
+
+
+nota finala: 10p 
+
+trebuie sa fiu mult mai specific cu cerintele
+la subiectul 2 nu am specificat tot
+
+

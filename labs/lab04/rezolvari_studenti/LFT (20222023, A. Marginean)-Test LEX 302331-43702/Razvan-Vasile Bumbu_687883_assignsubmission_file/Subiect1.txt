@@ -1,0 +1,26 @@
+S1.1
+Exemplul1:  12.5
+Exemplul2:  4.2e-5
+Exemplul3:  2.1e+9
+
+
+
+S1.2
+[0-9]{4}-((0[0-9])|(1)[0-2])-(([0-2][1-9])|(3[0-1]))[ ](([0-1][0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9]
+
+
+
+S1.3
+[a-zA-Z0-9]+(([a-zA-Z0-9])|(-)|(_))[a-zA-Z0-9]+@[A-Za-z]+[\.]com 
+
+
+
+S1.3
+O sa avem un string de tipul:   x = y semn z    unde
+    x = litera mare/mica    => 31+31 = 62 variante
+    y = 000, 001, 002, 003, 010, ... , 332, 333     => 4*4*4 = 64 variante
+    semn = +, /, -, *   => 4 variante
+    z = 10 variante
+
+=> in total o sa se potriveasca 62*64*4*10 stringuri
+=> 158720 (sper ca nu am gresit la calcule)
