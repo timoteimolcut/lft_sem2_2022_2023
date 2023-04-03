@@ -1,0 +1,14 @@
+VAR= INT 
+VAR= INT MUL REAL 
+FOR  VAR IN   INT  TO   INT :
+    VAR = VAR ADD  INT 
+    VAR = (VARSUB INT )DIV INT 
+
+    IF  VAR <  REAL :
+        PRINT(VAR)
+    ELSE :
+        VAR = VARADDADD
+        IF  VAR ==  INT :
+            EXIT()
+
+total # of ints: 8

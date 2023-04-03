@@ -1,0 +1,7 @@
+moodle quiz with questions
+different subjects between groups
+something that you can't search on the web
+be more specific when necessary
+problem with specific output -> autograder
+sa nu puna lucruri pompoase care se vede ca sunt copiate, ci sa rezolve cat mai simplu cerinta
+nu suntem la facultate de litere, fara compuneri, aici se dau doar raspunsuri precise

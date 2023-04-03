@@ -1,8 +1,12 @@
 %token INTEGER VARIABLE
-%left '+' '-'
-%left '*' '/'
+
 
 %{
+#include <stdio.h>
+#include "y.tab.h"
+int yylex ();
+void yyerror ( const char * s );
+
 static int variables[26];
 %}
 
@@ -25,3 +29,11 @@ expression : INTEGER
            | expression '/' expression { $$ = $1 / $3; }
            | '(' expression ')' { $$ = $2; }
            ;
+
+%%
+
+void yyerror(char const *s)
+{
+    printf("yyerror  %s\n",s);
+    return ;
+}

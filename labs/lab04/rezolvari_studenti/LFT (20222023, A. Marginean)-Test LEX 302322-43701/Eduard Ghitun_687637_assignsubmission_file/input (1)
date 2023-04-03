@@ -1,5 +1,5 @@
 
-            %{
+%{
     int num_integers = 0;
 %}
 

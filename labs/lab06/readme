@@ -1,0 +1,4 @@
+La aplicare scanner/parser pe test.in, aveti agrija la modul de tratare a caracterului \n:
+- se transmite de catre lex say se ignora?
+- se foloseste in productii in fisierului .y?
+- exista \n la finalul fisierului test.in?

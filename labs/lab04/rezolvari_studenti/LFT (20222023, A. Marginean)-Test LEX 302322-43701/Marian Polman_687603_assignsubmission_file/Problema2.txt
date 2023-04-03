@@ -22,5 +22,5 @@ MOD {printf("MOD\n");}
 FOR {printf("FOR\n");}
 IN {printf("IN\n");}
 IF {printf("IF\n");}
-"\n" {printf("%d,cnt")}
+"\n" {printf("%d,cnt");}
 %%

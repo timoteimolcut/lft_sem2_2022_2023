@@ -1,0 +1,12 @@
+VAR=INT
+VAR=INT MUL REAL
+FOR VAR IN INT TO INT:
+    VAR = VAR  ADD  INT
+    VAR = (VAR SUB INT) DIV INT
+
+    IF VAR < REAL:
+        print(VAR)
+    ELSE:
+        VAR = VAR INC 
+        IF VAR == INT:
+            exit()

@@ -1,0 +1,47 @@
+sudo apt-get update
+sudo apt-get install bison
+
+https://www.geeksforgeeks.org/introduction-to-yacc/
+
+
+
+
+yacc [-vlt] [-o file_name.c] [-d] yacc_source_file.y
+
+gcc [lex.yy.c/lex_generated_file.c] y.tab.c -ll -ly
+
+    -ly, please install the libbison-dev library
+    apt install libbison-dev
+
+YACC = generator de analizor sintactic
+
+
+ce se genereaza: y.tab.h si y.tab.c
+functia yyparse()
+
+yylex() returneaza un token = simbol terminal/atom
+yyparse() organizeaza tokenii dupa niste reguli gramaticale
+    o structura recunoscuta de analizor se numeste simbol non-terminal
+    se face matching la reguli gramaticale, iar apoi se executa actiunile lor
+
+fisier yacc
+    declaratii
+    % token nume1 nume2 nume3 ...
+    %%
+    reguli
+    %%
+    programe
+
+yylex() returneaza numarul intreg al unui token
+
+fiecare regula gramaticala are o actiune C
+
+$$, $1, $2, $3 etc.
+
+
+
+exemplu rulare
+    lex first.l
+    yacc first.y -d
+    gcc lex.yy.c y.tab.c -ly -ll
+    
