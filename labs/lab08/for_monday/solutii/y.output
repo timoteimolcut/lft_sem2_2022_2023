@@ -1,0 +1,183 @@
+Grammar
+
+    0 $accept: poli $end
+
+    1 poli: monom
+    2     | '-' monom
+    3     | poli '+' monom
+    4     | poli '-' monom
+
+    5 monom: coef 'x' grad
+
+    6 coef: NUMBER
+    7     | %empty
+
+    8 grad: '^' NUMBER
+    9     | %empty
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'+' (43) 3
+'-' (45) 2 4
+'^' (94) 8
+'x' (120) 5
+error (256)
+NUMBER (258) 6 8
+
+
+Nonterminals, with rules where they appear
+
+$accept (8)
+    on left: 0
+poli (9)
+    on left: 1 2 3 4, on right: 0 3 4
+monom (10)
+    on left: 5, on right: 1 2 3 4
+coef (11)
+    on left: 6 7, on right: 5
+grad (12)
+    on left: 8 9, on right: 5
+
+
+State 0
+
+    0 $accept: . poli $end
+
+    NUMBER  shift, and go to state 1
+    '-'     shift, and go to state 2
+
+    $default  reduce using rule 7 (coef)
+
+    poli   go to state 3
+    monom  go to state 4
+    coef   go to state 5
+
+
+State 1
+
+    6 coef: NUMBER .
+
+    $default  reduce using rule 6 (coef)
+
+
+State 2
+
+    2 poli: '-' . monom
+
+    NUMBER  shift, and go to state 1
+
+    $default  reduce using rule 7 (coef)
+
+    monom  go to state 6
+    coef   go to state 5
+
+
+State 3
+
+    0 $accept: poli . $end
+    3 poli: poli . '+' monom
+    4     | poli . '-' monom
+
+    $end  shift, and go to state 7
+    '-'   shift, and go to state 8
+    '+'   shift, and go to state 9
+
+
+State 4
+
+    1 poli: monom .
+
+    $default  reduce using rule 1 (poli)
+
+
+State 5
+
+    5 monom: coef . 'x' grad
+
+    'x'  shift, and go to state 10
+
+
+State 6
+
+    2 poli: '-' monom .
+
+    $default  reduce using rule 2 (poli)
+
+
+State 7
+
+    0 $accept: poli $end .
+
+    $default  accept
+
+
+State 8
+
+    4 poli: poli '-' . monom
+
+    NUMBER  shift, and go to state 1
+
+    $default  reduce using rule 7 (coef)
+
+    monom  go to state 11
+    coef   go to state 5
+
+
+State 9
+
+    3 poli: poli '+' . monom
+
+    NUMBER  shift, and go to state 1
+
+    $default  reduce using rule 7 (coef)
+
+    monom  go to state 12
+    coef   go to state 5
+
+
+State 10
+
+    5 monom: coef 'x' . grad
+
+    '^'  shift, and go to state 13
+
+    $default  reduce using rule 9 (grad)
+
+    grad  go to state 14
+
+
+State 11
+
+    4 poli: poli '-' monom .
+
+    $default  reduce using rule 4 (poli)
+
+
+State 12
+
+    3 poli: poli '+' monom .
+
+    $default  reduce using rule 3 (poli)
+
+
+State 13
+
+    8 grad: '^' . NUMBER
+
+    NUMBER  shift, and go to state 15
+
+
+State 14
+
+    5 monom: coef 'x' grad .
+
+    $default  reduce using rule 5 (monom)
+
+
+State 15
+
+    8 grad: '^' NUMBER .
+
+    $default  reduce using rule 8 (grad)

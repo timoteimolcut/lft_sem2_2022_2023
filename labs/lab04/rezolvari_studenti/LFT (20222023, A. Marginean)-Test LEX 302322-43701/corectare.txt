@@ -218,11 +218,11 @@ cealalta grupa
         *1p
         *0.9p
         *0.9p
-        *0p
+        *1p
     2.
         *3p
         *3p
-    total: 8.8p
+    total: 9.8p
 
     levente ballai
     1.
@@ -285,9 +285,9 @@ cealalta grupa
         *0.75p
         *0.9p
         *0.9p
-        *0p
+        *1p
     2.
         *0p
         *2.5p
-    total: 5.05p
+    total: 6.05p
 

@@ -1,0 +1,73 @@
+Grammar
+
+    0 $accept: S $end
+
+    1 S: '0' S '1'
+    2  | %empty
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    '0' (48) 1
+    '1' (49) 1
+    error (256)
+
+
+Nonterminals, with rules where they appear
+
+    $accept (5)
+        on left: 0
+    S (6)
+        on left: 1 2
+        on right: 0 1
+
+
+State 0
+
+    0 $accept: • S $end
+
+    '0'  shift, and go to state 1
+
+    $default  reduce using rule 2 (S)
+
+    S  go to state 2
+
+
+State 1
+
+    1 S: '0' • S '1'
+
+    '0'  shift, and go to state 1
+
+    $default  reduce using rule 2 (S)
+
+    S  go to state 3
+
+
+State 2
+
+    0 $accept: S • $end
+
+    $end  shift, and go to state 4
+
+
+State 3
+
+    1 S: '0' S • '1'
+
+    '1'  shift, and go to state 5
+
+
+State 4
+
+    0 $accept: S $end •
+
+    $default  accept
+
+
+State 5
+
+    1 S: '0' S '1' •
+
+    $default  reduce using rule 1 (S)
