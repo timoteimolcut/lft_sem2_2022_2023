@@ -73,8 +73,20 @@
     int yylex();
     void yyerror();
     // #include "if_functions.h"
+    typedef struct _node{
+        int type;
+        struct _node *first;
+        struct _node *second;
+        struct _node *third;
+        int value;
+        char* name;
+    } node;
 
-#line 78 "y.tab.c"
+    node *opr2(int type, node *first, node *second);
+    node *opr3(int type, node *first, node *second, node * third);
+    node *setConst(int value);
+
+#line 90 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -141,12 +153,12 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 9 "if_scanner.y"
+#line 21 "if_scanner.y"
  int number;
          char* variable;
-         struct node *np;
+         struct _node *np;
 
-#line 150 "y.tab.c"
+#line 162 "y.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -516,7 +528,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  2
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   33
+#define YYLAST   31
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  16
@@ -575,8 +587,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    24,    24,    26,    29,    30,    31,    34,    36,    40,
-      42,    46,    47,    53,    55,    57,    58,    59,    60
+       0,    41,    41,    43,    46,    47,    48,    51,    53,    57,
+      58,    62,    63,    69,    75,    80,    81,    82,    83
 };
 #endif
 
@@ -604,7 +616,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-15)
+#define YYPACT_NINF (-14)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -618,10 +630,10 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-     -15,     4,   -15,    -9,   -15,   -15,   -15,   -15,    -1,    11,
-     -15,   -15,    19,   -15,    10,    10,    10,    10,   -15,     7,
-      13,    13,   -15,   -15,    15,   -15,    20,    10,     7,    18,
-     -15
+     -14,     0,   -14,   -13,   -14,   -14,   -14,   -14,    -6,     1,
+     -14,   -14,    11,   -14,    10,    10,    10,    10,   -14,    17,
+      15,    15,   -14,   -14,    -2,   -14,    14,    22,    17,   -14,
+     -14
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -638,7 +650,7 @@ static const yytype_int8 yydefact[] =
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -15,   -15,   -15,    29,     5,   -15,   -14
+     -14,   -14,   -14,    26,     3,   -14,     2
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -652,18 +664,18 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      20,    21,    22,    23,     2,    10,    11,     3,     4,     5,
-       3,    13,    24,    29,     4,     5,     6,    14,    15,    16,
-      17,    16,    17,    18,    14,    15,    16,    17,    27,    19,
-       8,    28,     0,    30
+       2,    10,    11,     3,     4,     5,    13,    14,    15,    16,
+      17,    27,     6,    18,     4,     5,    20,    21,    22,    23,
+       3,    19,    24,    16,    17,    28,    29,     8,     0,     0,
+       0,    30
 };
 
 static const yytype_int8 yycheck[] =
 {
-      14,    15,    16,    17,     0,    14,    15,     3,     4,     5,
-       3,    12,     5,    27,     4,     5,    12,     6,     7,     8,
-       9,     8,     9,    12,     6,     7,     8,     9,    13,    10,
-       1,    11,    -1,    28
+       0,    14,    15,     3,     4,     5,    12,     6,     7,     8,
+       9,    13,    12,    12,     4,     5,    14,    15,    16,    17,
+       3,    10,     5,     8,     9,    11,     4,     1,    -1,    -1,
+      -1,    28
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -672,7 +684,7 @@ static const yytype_int8 yystos[] =
 {
        0,    17,     0,     3,     4,     5,    12,    18,    19,    22,
       14,    15,    21,    12,     6,     7,     8,     9,    12,    10,
-      22,    22,    22,    22,     5,    19,    20,    13,    11,    22,
+      22,    22,    22,    22,     5,    19,    20,    13,    11,     4,
       20
 };
 
@@ -1151,49 +1163,50 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* program: program line  */
-#line 25 "if_scanner.y"
+#line 42 "if_scanner.y"
             {printf("done reading a line...\n\n");}
-#line 1157 "y.tab.c"
-    break;
-
-  case 7: /* if_stmt: IF cond THEN stmt  */
-#line 35 "if_scanner.y"
-            {printf("done reading a simple if statement\n");}
-#line 1163 "y.tab.c"
-    break;
-
-  case 8: /* if_stmt: IF cond THEN stmt ELSE stmt  */
-#line 37 "if_scanner.y"
-            {printf("done reading a complete if statement\n");}
 #line 1169 "y.tab.c"
     break;
 
-  case 9: /* stmt: ID '=' exp  */
-#line 41 "if_scanner.y"
-            {printf("done reading an assignment\n");}
+  case 7: /* if_stmt: IF cond THEN stmt  */
+#line 52 "if_scanner.y"
+            {printf("done reading a simple if statement\n");}
 #line 1175 "y.tab.c"
     break;
 
-  case 10: /* stmt: if_stmt  */
-#line 43 "if_scanner.y"
-            {printf("done reading an imbrigated if\n");}
+  case 8: /* if_stmt: IF cond THEN stmt ELSE stmt  */
+#line 54 "if_scanner.y"
+            {printf("done reading a complete if statement\n");}
 #line 1181 "y.tab.c"
     break;
 
-  case 13: /* exp: NUMBER  */
-#line 54 "if_scanner.y"
-            {printf("found a number: %d, %d\n", yylval.number, (yyvsp[0].number)); (yyval.number)=(yyvsp[0].number);}
+  case 10: /* stmt: if_stmt  */
+#line 59 "if_scanner.y"
+            {printf("done reading an imbrigated if\n");}
 #line 1187 "y.tab.c"
     break;
 
+  case 13: /* exp: NUMBER  */
+#line 70 "if_scanner.y"
+            {   
+                printf("found a number: %d, %d\n", yylval.number, (yyvsp[0].number)); 
+                // $$=$1;
+                // $$ = setConst($1);
+            }
+#line 1197 "y.tab.c"
+    break;
+
   case 14: /* exp: ID  */
-#line 56 "if_scanner.y"
-            {printf("found an id: %s, %s\n", yylval.variable, (yyvsp[0].variable));}
-#line 1193 "y.tab.c"
+#line 76 "if_scanner.y"
+            {   
+                printf("found an id: %s, %s\n", yylval.variable, (yyvsp[0].variable));
+                // $$ = opr2('=', $1, $3);
+            }
+#line 1206 "y.tab.c"
     break;
 
 
-#line 1197 "y.tab.c"
+#line 1210 "y.tab.c"
 
       default: break;
     }
@@ -1386,7 +1399,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 64 "if_scanner.y"
+#line 87 "if_scanner.y"
 
 
 void main(){
@@ -1398,4 +1411,50 @@ void main(){
 void yyerror()
 {
     printf("\nUPS: found an error\n\n");
+}
+
+
+
+node *opr2(int type, node *first, node *second){
+   node *p;
+   p=(node*)malloc(sizeof(node));
+   p->type= type;
+   p->first=first;
+   p->second = second;
+}
+
+node *opr3(int type, node *first, node *second, node * third){
+   node *p;
+   p=(node*)malloc(sizeof(node));
+   p->type= type;
+   p->first=first;
+   p->second = second;
+   p->third = third;
+}
+
+node *setConst(int value){
+   node *p;
+   p=(node*)malloc(sizeof(node));
+   p->type= NUMBER;
+   p->value=value;
+
+}
+void printpre(node *opr){
+    if (opr==NULL)
+       return ;
+    if (opr->type ==NUMBER)
+       printf("%i ", opr->value);
+    else
+     {
+      switch (opr->type ){
+      case IF: printf("( IF ");break;
+      case ID: printf("( Variable ");  break;
+      default : printf(" ( %c ", opr->type);
+      }
+      printpre(opr->first);
+      printpre(opr->second);
+      printpre(opr->third);
+      printf(" ) ");
+     }
+ 
 }

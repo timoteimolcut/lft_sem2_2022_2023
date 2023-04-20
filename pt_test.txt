@@ -1,0 +1,12 @@
+solutii la if, lisp, restul exercitiilor -> cu arbore de parsare, explicatii ca sa inteleaga tot omul 
+restul exercitiilor
+
+
+
+
+sa le zic ce intra la test saptamana asta pe teams
+2 probleme
+ceva cu lex plus yacc
+autograder
+nu cred ca dau arbore de parsare
+
