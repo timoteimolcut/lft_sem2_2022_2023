@@ -1,0 +1,8 @@
+while a < 100:
+    b = 20
+    while c > 12:
+        d = 3
+
+while x < 2:
+    y = -3
+

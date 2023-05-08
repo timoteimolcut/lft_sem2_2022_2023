@@ -1,0 +1,155 @@
+solutii la if, lisp, restul exercitiilor -> cu arbore de parsare, explicatii ca sa inteleaga tot omul 
+restul exercitiilor
+
+
+
+
+sa le zic ce intra la test saptamana asta pe teams
+2 probleme
+ceva cu lex plus yacc
+autograder
+nu cred ca dau arbore de parsare
+
+
+1.30 min
+1. quiz cu grila
+	3 intrebari de cate un punct
+	
+	token vs nonterminal vs literali
+	
+	yylval vs token number
+	
+	%token vs %type
+	
+	%left vs %right vs %prec
+		expr : expr ’+ ’ expr
+	| expr ’-’ expr
+	| expr ’* ’ expr
+	| expr ’/ ’ expr
+	| ’-’ expr % prec ’* ’
+	| NAME
+	;
+	
+	%start
+	
+	%union
+	
+	ceva cu actiune yacc:
+		$ACT : /* empty */ { $$ =1;}
+		;
+		A : B $ACT C { x =$2 ; y =$3 ;}
+		;
+	
+	$$, $1, $2
+
+
+	yyparse vs yylex
+	
+	conflicte, shift vs reduce
+	
+	
+	exp : exp { printf(">\n"); $$ = 1; } 
+		  '%' exp { x = $4 ; y = $1 ; $$ = y % x; } 
+;
+	
+	
+
+
+2. problema lex si yacc de introdus codul
+sa testez codul lor cu anumite inputuri
+	problema de 7 puncte
+
+	scanner pt while/do while
+	
+	program cu mai multe linii, linii libere(goale) si/sau cu intructiuni while, statement 
+	
+	while cond :
+	statement
+	
+	statement poate sa fie: assignment, while imbricat, 
+	
+	
+do
+	statement
+while condition :
+
+do
+    b = 20
+    do
+        d = 3    
+    while c > 12:    
+while a < 100:
+
+do
+    y = -3
+while x < 2:
+
+	
+	
+	
+	
+
+
+
+Write a scanner (Lex+Yacc program) that knows how to read while statements.
+
+The input can be on multiple lines (possibly empty) having while statements.
+
+The while statement must look like this:
+
+while condition :
+    statement
+
+
+The condition is a comparison between a variable and an int value e.g. 'a > 100', 'y < 3' etc
+
+The statement is an assignment e.g. 'b = 13', or it can be an imbricated while statement.
+
+For maximum score, implement the parsing tree, using a node structure and print the resulted tree at the end.
+
+Take as input the following example:
+
+while a < 100:
+    b = 20
+    while c > 12:
+        d = 3    
+
+while x < 2:
+    y = -3
+
+
+Save your files as while.l and while.y and attach them in the below section.
+
+
+
+
+Write a scanner (Lex+Yacc program) that knows how to read do while statements.
+
+The input can be on multiple lines (possibly empty) having do while statements.
+
+The do while statement must look like this:
+
+do
+    statement
+while condition :
+
+The condition is a comparison between a variable and an int value e.g. 'a > 100', 'y < 3' etc
+
+The statement is an assignment e.g. 'b = 13', or it can be an imbricated do while statement.
+
+For maximum score, implement the parsing tree, using a node structure and print the resulted tree at the end.
+
+Take as input the following example:
+
+do
+    b = 20
+    do
+        d = 3
+    while c > 12:
+while a < 100:
+
+do
+    y = -3
+while x < 2:
+
+Save your files as do_while.l and do_while.y and attach them in the below section.

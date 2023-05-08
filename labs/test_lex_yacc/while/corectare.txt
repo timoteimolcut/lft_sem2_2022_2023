@@ -1,0 +1,18 @@
+daca e cu arbore de parsare nota maxima
+
+pt fisier lex un anumit threshold
+pt fisier yacc un anumit threshold
+
+
+daca compileaza si ruleaza bine pe input  
+daca compileaza
+daca nu compileaza 0 si mai revin sa ma uit ca sa dau intermediar
+
+
+
+ll */a.out | wc -l
+6
+ll */lex.yy.c | wc -l
+12
+
+

@@ -1,0 +1,5 @@
+ll */lex.yy.c | wc -l
+11
+ll */a.out | wc -l
+7
+

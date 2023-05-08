@@ -67,7 +67,7 @@
 
 
 /* First part of user prologue.  */
-#line 2 "if_scanner.y"
+#line 1 "if_scanner.y"
 
     #include <stdio.h>
     int yylex();
@@ -79,12 +79,12 @@
         struct _node *second;
         struct _node *third;
         int value;
-        char* name;
     } node;
 
     node *opr2(int type, node *first, node *second);
     node *opr3(int type, node *first, node *second, node * third);
     node *setConst(int value);
+    void printpre(node *np);
 
 #line 90 "y.tab.c"
 
@@ -153,9 +153,9 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 21 "if_scanner.y"
+#line 20 "if_scanner.y"
  int number;
-         char* variable;
+         char variable;
          struct _node *np;
 
 #line 162 "y.tab.c"
@@ -191,9 +191,9 @@ enum yysymbol_kind_t
   YYSYMBOL_THEN = 10,                      /* THEN  */
   YYSYMBOL_ELSE = 11,                      /* ELSE  */
   YYSYMBOL_12_n_ = 12,                     /* '\n'  */
-  YYSYMBOL_13_ = 13,                       /* '='  */
-  YYSYMBOL_14_ = 14,                       /* '>'  */
-  YYSYMBOL_15_ = 15,                       /* '<'  */
+  YYSYMBOL_13_ = 13,                       /* '>'  */
+  YYSYMBOL_14_ = 14,                       /* '<'  */
+  YYSYMBOL_15_ = 15,                       /* '='  */
   YYSYMBOL_YYACCEPT = 16,                  /* $accept  */
   YYSYMBOL_program = 17,                   /* program  */
   YYSYMBOL_line = 18,                      /* line  */
@@ -528,16 +528,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  2
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   31
+#define YYLAST   36
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  16
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  7
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  18
+#define YYNRULES  17
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  31
+#define YYNSTATES  33
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   262
@@ -560,7 +560,7 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     8,     6,     2,     7,     2,     9,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      15,    13,    14,     2,     2,     2,     2,     2,     2,     2,
+      14,    15,    13,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -587,8 +587,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    41,    41,    43,    46,    47,    48,    51,    53,    57,
-      58,    62,    63,    69,    75,    80,    81,    82,    83
+       0,    40,    40,    46,    49,    51,    53,    57,    62,    69,
+      71,    78,    80,    87,    92,    94,    96,    98
 };
 #endif
 
@@ -605,7 +605,7 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "IF", "NUMBER", "ID",
-  "'+'", "'-'", "'*'", "'/'", "THEN", "ELSE", "'\\n'", "'='", "'>'", "'<'",
+  "'+'", "'-'", "'*'", "'/'", "THEN", "ELSE", "'\\n'", "'>'", "'<'", "'='",
   "$accept", "program", "line", "if_stmt", "stmt", "cond", "exp", YY_NULLPTR
 };
 
@@ -616,7 +616,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-14)
+#define YYPACT_NINF (-9)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -630,10 +630,10 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-     -14,     0,   -14,   -13,   -14,   -14,   -14,   -14,    -6,     1,
-     -14,   -14,    11,   -14,    10,    10,    10,    10,   -14,    17,
-      15,    15,   -14,   -14,    -2,   -14,    14,    22,    17,   -14,
-     -14
+      -9,     4,    -9,    -3,    -7,    -9,    -9,     9,    11,    -8,
+      12,    24,    -9,    25,    25,    25,    25,    -9,    27,    28,
+      -2,    -9,     2,     2,    -9,    -9,    -9,    -9,    -9,    22,
+      18,    -2,    -9
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -641,22 +641,22 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       3,     0,     1,     0,    13,    14,     6,     2,     0,     0,
-      11,    12,     0,     5,     0,     0,     0,     0,     4,     0,
-      15,    16,    17,    18,     0,    10,     7,     0,     0,     9,
-       8
+       3,     0,     1,     0,     0,     6,     2,     0,     0,     0,
+       0,     0,     5,     0,     0,     0,     0,     4,     0,     0,
+       0,    13,    14,    15,    16,    17,    11,    12,    10,     7,
+       9,     0,     8
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -14,   -14,   -14,    26,     3,   -14,     2
+      -9,    -9,    -9,    33,     5,    -9,    -1
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     1,     7,    25,    26,    12,     9
+       0,     1,     6,    28,    29,    10,    30
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -664,42 +664,42 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       2,    10,    11,     3,     4,     5,    13,    14,    15,    16,
-      17,    27,     6,    18,     4,     5,    20,    21,    22,    23,
-       3,    19,    24,    16,    17,    28,    29,     8,     0,     0,
-       0,    30
+       8,     3,     9,     4,     2,    18,    19,     3,    11,     4,
+      15,    16,    22,    23,    24,    25,     5,    13,    14,    15,
+      16,    12,    20,    17,    13,    14,    15,    16,    21,     0,
+       4,    26,    27,    31,     7,     0,    32
 };
 
 static const yytype_int8 yycheck[] =
 {
-       0,    14,    15,     3,     4,     5,    12,     6,     7,     8,
-       9,    13,    12,    12,     4,     5,    14,    15,    16,    17,
-       3,    10,     5,     8,     9,    11,     4,     1,    -1,    -1,
-      -1,    28
+       1,     3,     5,     5,     0,    13,    14,     3,    15,     5,
+       8,     9,    13,    14,    15,    16,    12,     6,     7,     8,
+       9,    12,    10,    12,     6,     7,     8,     9,     4,    -1,
+       5,     4,     4,    11,     1,    -1,    31
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,    17,     0,     3,     4,     5,    12,    18,    19,    22,
-      14,    15,    21,    12,     6,     7,     8,     9,    12,    10,
-      22,    22,    22,    22,     5,    19,    20,    13,    11,     4,
-      20
+       0,    17,     0,     3,     5,    12,    18,    19,    22,     5,
+      21,    15,    12,     6,     7,     8,     9,    12,    13,    14,
+      10,     4,    22,    22,    22,    22,     4,     4,    19,    20,
+      22,    11,    20
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
        0,    16,    17,    17,    18,    18,    18,    19,    19,    20,
-      20,    21,    21,    22,    22,    22,    22,    22,    22
+      20,    21,    21,    22,    22,    22,    22,    22
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     2,     0,     2,     2,     1,     4,     6,     3,
-       1,     1,     1,     1,     1,     3,     3,     3,     3
+       0,     2,     2,     0,     2,     2,     1,     4,     6,     1,
+       1,     3,     3,     3,     3,     3,     3,     3
 };
 
 
@@ -1163,50 +1163,119 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* program: program line  */
-#line 42 "if_scanner.y"
-            {printf("done reading a line...\n\n");}
-#line 1169 "y.tab.c"
-    break;
-
-  case 7: /* if_stmt: IF cond THEN stmt  */
-#line 52 "if_scanner.y"
-            {printf("done reading a simple if statement\n");}
-#line 1175 "y.tab.c"
-    break;
-
-  case 8: /* if_stmt: IF cond THEN stmt ELSE stmt  */
-#line 54 "if_scanner.y"
-            {printf("done reading a complete if statement\n");}
-#line 1181 "y.tab.c"
-    break;
-
-  case 10: /* stmt: if_stmt  */
-#line 59 "if_scanner.y"
-            {printf("done reading an imbrigated if\n");}
-#line 1187 "y.tab.c"
-    break;
-
-  case 13: /* exp: NUMBER  */
-#line 70 "if_scanner.y"
-            {   
-                printf("found a number: %d, %d\n", yylval.number, (yyvsp[0].number)); 
-                // $$=$1;
-                // $$ = setConst($1);
+#line 41 "if_scanner.y"
+            {
+                printf("Done reading a line...\nPrinting it...\n");
+                printpre((yyvsp[0].np));
+                printf("\n\n");
             }
+#line 1173 "y.tab.c"
+    break;
+
+  case 3: /* program: %empty  */
+#line 46 "if_scanner.y"
+                        {}
+#line 1179 "y.tab.c"
+    break;
+
+  case 4: /* line: exp '\n'  */
+#line 50 "if_scanner.y"
+            {(yyval.np) = opr2('l', (yyvsp[-1].np), NULL);}
+#line 1185 "y.tab.c"
+    break;
+
+  case 5: /* line: if_stmt '\n'  */
+#line 52 "if_scanner.y"
+            {(yyval.np) = opr2('l', (yyvsp[-1].np), NULL);}
+#line 1191 "y.tab.c"
+    break;
+
+  case 6: /* line: '\n'  */
+#line 54 "if_scanner.y"
+            {(yyval.np) = opr2('l', NULL, NULL);}
 #line 1197 "y.tab.c"
     break;
 
-  case 14: /* exp: ID  */
-#line 76 "if_scanner.y"
-            {   
-                printf("found an id: %s, %s\n", yylval.variable, (yyvsp[0].variable));
-                // $$ = opr2('=', $1, $3);
+  case 7: /* if_stmt: IF cond THEN stmt  */
+#line 58 "if_scanner.y"
+            {
+                printf("done reading a simple if statement\n");
+                (yyval.np) = opr2('i', (yyvsp[-2].np), (yyvsp[0].np));
             }
 #line 1206 "y.tab.c"
     break;
 
+  case 8: /* if_stmt: IF cond THEN stmt ELSE stmt  */
+#line 63 "if_scanner.y"
+            {
+                printf("done reading a complete if statement\n");
+                (yyval.np) = opr3('i', (yyvsp[-4].np), (yyvsp[-2].np), (yyvsp[0].np));
+            }
+#line 1215 "y.tab.c"
+    break;
 
-#line 1210 "y.tab.c"
+  case 9: /* stmt: exp  */
+#line 70 "if_scanner.y"
+            {(yyval.np) = opr2('e', (yyvsp[0].np), NULL);}
+#line 1221 "y.tab.c"
+    break;
+
+  case 10: /* stmt: if_stmt  */
+#line 72 "if_scanner.y"
+            {
+                printf("done reading an imbrigated if\n");
+                (yyval.np) = opr2('s', (yyvsp[0].np), NULL);    
+            }
+#line 1230 "y.tab.c"
+    break;
+
+  case 11: /* cond: ID '>' NUMBER  */
+#line 79 "if_scanner.y"
+           {(yyval.np) = opr2('>', opr2(ID, opr2((yyvsp[-2].variable), NULL, NULL), NULL), setConst((yyvsp[0].number)));}
+#line 1236 "y.tab.c"
+    break;
+
+  case 12: /* cond: ID '<' NUMBER  */
+#line 81 "if_scanner.y"
+            {(yyval.np) = opr2('<', opr2(ID, opr2((yyvsp[-2].variable), NULL, NULL), NULL), setConst((yyvsp[0].number)));}
+#line 1242 "y.tab.c"
+    break;
+
+  case 13: /* exp: ID '=' NUMBER  */
+#line 88 "if_scanner.y"
+            {   
+                printf("Found an assignment: %c, %d\n", (yyvsp[-2].variable), (yyvsp[0].number)); 
+                (yyval.np) = opr2('=', opr2(ID, opr2((yyvsp[-2].variable), NULL, NULL), NULL), setConst((yyvsp[0].number)));
+            }
+#line 1251 "y.tab.c"
+    break;
+
+  case 14: /* exp: exp '+' exp  */
+#line 93 "if_scanner.y"
+            {(yyval.np) = opr2('+', (yyvsp[-2].np), (yyvsp[0].np));}
+#line 1257 "y.tab.c"
+    break;
+
+  case 15: /* exp: exp '-' exp  */
+#line 95 "if_scanner.y"
+            {(yyval.np) = opr2('-', (yyvsp[-2].np), (yyvsp[0].np));}
+#line 1263 "y.tab.c"
+    break;
+
+  case 16: /* exp: exp '*' exp  */
+#line 97 "if_scanner.y"
+            {(yyval.np) = opr2('*', (yyvsp[-2].np), (yyvsp[0].np));}
+#line 1269 "y.tab.c"
+    break;
+
+  case 17: /* exp: exp '/' exp  */
+#line 99 "if_scanner.y"
+            {(yyval.np) = opr2('/', (yyvsp[-2].np), (yyvsp[0].np));}
+#line 1275 "y.tab.c"
+    break;
+
+
+#line 1279 "y.tab.c"
 
       default: break;
     }
@@ -1399,11 +1468,11 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 87 "if_scanner.y"
+#line 103 "if_scanner.y"
 
 
 void main(){
-    printf("\nscanner started\n\n");
+    printf("\nScanner has started\n\n");
     yyparse();
 }
 

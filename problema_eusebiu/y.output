@@ -1,0 +1,109 @@
+Grammar
+
+    0 $accept: program $end
+
+    1 program: program line
+    2        | ε
+
+    3 line: '(' list ')' '\n'
+
+    4 list: list INTEGER
+    5     | ε
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    '\n' (10) 3
+    '(' (40) 3
+    ')' (41) 3
+    error (256)
+    INTEGER (258) 4
+
+
+Nonterminals, with rules where they appear
+
+    $accept (7)
+        on left: 0
+    program (8)
+        on left: 1 2
+        on right: 0 1
+    line (9)
+        on left: 3
+        on right: 1
+    list (10)
+        on left: 4 5
+        on right: 3 4
+
+
+State 0
+
+    0 $accept: • program $end
+
+    $default  reduce using rule 2 (program)
+
+    program  go to state 1
+
+
+State 1
+
+    0 $accept: program • $end
+    1 program: program • line
+
+    $end  shift, and go to state 2
+    '('   shift, and go to state 3
+
+    line  go to state 4
+
+
+State 2
+
+    0 $accept: program $end •
+
+    $default  accept
+
+
+State 3
+
+    3 line: '(' • list ')' '\n'
+
+    $default  reduce using rule 5 (list)
+
+    list  go to state 5
+
+
+State 4
+
+    1 program: program line •
+
+    $default  reduce using rule 1 (program)
+
+
+State 5
+
+    3 line: '(' list • ')' '\n'
+    4 list: list • INTEGER
+
+    INTEGER  shift, and go to state 6
+    ')'      shift, and go to state 7
+
+
+State 6
+
+    4 list: list INTEGER •
+
+    $default  reduce using rule 4 (list)
+
+
+State 7
+
+    3 line: '(' list ')' • '\n'
+
+    '\n'  shift, and go to state 8
+
+
+State 8
+
+    3 line: '(' list ')' '\n' •
+
+    $default  reduce using rule 3 (line)

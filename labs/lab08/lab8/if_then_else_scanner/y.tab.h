@@ -77,9 +77,9 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 21 "if_scanner.y"
+#line 20 "if_scanner.y"
  int number;
-         char* variable;
+         char variable;
          struct _node *np;
 
 #line 86 "y.tab.h"

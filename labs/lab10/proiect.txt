@@ -1,0 +1,39 @@
+Proiect
+
+echipă de 2-3 studenti
+nota maxima in functie de complexitatea proiectului
+
+sa compileze
+sa nu aiba erori de sintaxa 
+sa faca ceea ce ati specificat voi
+
+arbore de parsare la ambele variante
+
+1. mini limbaj de programare
+    sa aiba un aspect special/diferit de alte limbaje de programare
+    ex. desenare de grafice matematice
+    
+    for/while/do while
+    if/switch
+    assignments
+    variabile
+    stringuri
+    int/float
+    use the variables logically
+sau 
+2. chat bot 
+    knowledge base cu minim 100 de cuvinte
+    gramatica: subiect, predicat, complement, atribut etc
+    intrebare/raspuns, sau conversatie
+    exemplu: chatgpt
+
+
+documentatie in Latex:
+    1. introducere (scurta prezentare a proiectului)
+    2. descriere teoretica (ce face proiectul teoretic?)
+    3. decizii de implementare (de ce asa? de ce nu? etc)
+    4. exemple de rulare cu screenshots
+    5. link catre codul incarcat in github
+
+
+
