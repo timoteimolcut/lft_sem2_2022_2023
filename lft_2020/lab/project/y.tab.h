@@ -1,8 +1,9 @@
-/* A Bison parser, made by GNU Bison 3.0.4.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -15,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -30,6 +31,10 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
+/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
+   especially those whose name start with YY_ or yy_.  They are
+   private implementation details that can be changed or removed.  */
+
 #ifndef YY_YY_Y_TAB_H_INCLUDED
 # define YY_YY_Y_TAB_H_INCLUDED
 /* Debug traces.  */
@@ -40,30 +45,39 @@
 extern int yydebug;
 #endif
 
-/* Token type.  */
+/* Token kinds.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
   {
-    X = 258,
-    CONST = 259,
-    SIN = 260,
-    COS = 261,
-    DRAW = 262,
-    FOR = 263,
-    VAR = 264,
-    IN = 265,
-    TO = 266,
-    BY = 267,
-    IF = 268,
-    ELSE = 269,
-    PI = 270,
-    E = 271,
-    IFX = 272,
-    COMA = 273
+    YYEMPTY = -2,
+    YYEOF = 0,                     /* "end of file"  */
+    YYerror = 256,                 /* error  */
+    YYUNDEF = 257,                 /* "invalid token"  */
+    X = 258,                       /* X  */
+    CONST = 259,                   /* CONST  */
+    SIN = 260,                     /* SIN  */
+    COS = 261,                     /* COS  */
+    DRAW = 262,                    /* DRAW  */
+    FOR = 263,                     /* FOR  */
+    VAR = 264,                     /* VAR  */
+    IN = 265,                      /* IN  */
+    TO = 266,                      /* TO  */
+    BY = 267,                      /* BY  */
+    IF = 268,                      /* IF  */
+    ELSE = 269,                    /* ELSE  */
+    PI = 270,                      /* PI  */
+    E = 271,                       /* E  */
+    IFX = 272,                     /* IFX  */
+    COMA = 273                     /* COMA  */
   };
+  typedef enum yytokentype yytoken_kind_t;
 #endif
-/* Tokens.  */
+/* Token kinds.  */
+#define YYEMPTY -2
+#define YYEOF 0
+#define YYerror 256
+#define YYUNDEF 257
 #define X 258
 #define CONST 259
 #define SIN 260
@@ -83,19 +97,18 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-
 union YYSTYPE
 {
-#line 85 "grafix.y" /* yacc.c:1909  */
+#line 85 "grafix.y"
 
 	float number;
 	char variable;
 	float* coefs;
 	struct _node* parseNode;
 
-#line 97 "y.tab.h" /* yacc.c:1909  */
-};
+#line 110 "y.tab.h"
 
+};
 typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
@@ -104,6 +117,8 @@ typedef union YYSTYPE YYSTYPE;
 
 extern YYSTYPE yylval;
 
+
 int yyparse (void);
+
 
 #endif /* !YY_YY_Y_TAB_H_INCLUDED  */

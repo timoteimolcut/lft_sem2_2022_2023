@@ -1,0 +1,15 @@
+Parsati si afisati rezultatele operatiilor de pseudo-asamblare de mai jos, folosind lex si yacc.
+
+Input:
+	mul 12 4
+	div 20 4
+	add 42 24
+	sub 0 100
+	mul (add 1 1) (sub 4 1) 
+
+Output:
+	48
+	5
+	66
+	-100
+	6

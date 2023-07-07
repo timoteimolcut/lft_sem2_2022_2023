@@ -1,0 +1,26 @@
+
+
+
+
+test lex si yacc
+
+google meet trimit subiect
+un input mic
+
+sa rezolve parsare pe acel input
+
+
+
+sa parseze: and, or si not pentru siruri de numere in baza 2
+
+Exemple pentru fiecare operatie:
+11010 and 10100 = 10000
+11010 or 10100 = 11110
+not 10100 = 01011
+
+
+Cifrele de zero din partea stanga nu trebuie afisate:
+11 = 011 = 0011 etc
+
+
+
